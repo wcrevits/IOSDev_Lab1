@@ -95,3 +95,11 @@ do {
 } catch StringConversionError.emptyParameter {
     print("Empty String parameter not allowed")
 }
+
+//Deel 4
+
+struct Iphone {
+    let supplier = "Apple"
+    var type : String
+    var dimension = (height:Double, width:Double).self
+}
