@@ -47,4 +47,16 @@ print(divide(g1: 12, g2: 6))
 print(divide(g1: 12, g2: 7))
 //print(divide(g1: 12, g2: 0))  Geeft division by zero error
 
-func calculate(
+func calculate(nummers : Double...) -> (average:Double, minimum:Double, maximum:Double, count:Int)? {
+    if nummers.isEmpty {
+        return nil
+    }
+    
+    return (nummers.reduce(0, +), nummers.min()!, nummers.max()!, nummers.count)
+}
+print(calculate(nummers: 10, 0, 5))
+print(calculate(nummers: 4, 5, 6, -3))
+print(calculate(nummers: -3))
+print(calculate())
+
+
