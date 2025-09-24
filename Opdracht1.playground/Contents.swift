@@ -68,3 +68,30 @@ func increment(g1:inout Double, g2:inout Int) {
 }
 increment(g1: &x, g2: &y)
 print(x, y)
+
+//Deel 3
+
+enum StringConversionError : Error {
+    case nilParameter
+    case emptyParameter
+}
+
+func getUpperLowerCountException(str:String?) throws -> (uppercase:String, lowercase:String, charCount:Int) {
+    guard let unwrappedString = str else {
+        throw StringConversionError.nilParameter
+    }
+    if unwrappedString.isEmpty {
+        throw StringConversionError.emptyParameter
+    }
+    return (unwrappedString.uppercased(), unwrappedString.lowercased(), unwrappedString.count)
+}
+
+do {
+    //try print(getUpperLowerCountException(str: nil))
+    //try print(getUpperLowerCountException(str: ""))
+    try print(getUpperLowerCountException(str: "iOS 26"))
+} catch StringConversionError.nilParameter {
+    print("Nil value parameter not allowed")
+} catch StringConversionError.emptyParameter {
+    print("Empty String parameter not allowed")
+}
