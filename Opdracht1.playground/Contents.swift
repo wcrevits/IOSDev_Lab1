@@ -1,0 +1,50 @@
+//Deel 1
+
+var text = "SWIFT"
+let max = 10
+var average : Double = 0.0
+
+for letter in text {
+    print(letter)
+}
+
+var naam = (voornaam: "Wout", familienaam: "Crevits")
+print(naam.voornaam)
+print(naam.familienaam)
+
+var reversedString : String? = "test"
+
+if reversedString != nil {
+    print(reversedString)
+}
+else {
+    print("no result")
+}
+
+//Deel 2
+
+func reverseString (str:String) -> String {
+    return String(str.reversed())
+}
+print(reverseString(str:"Vives"))
+
+// Je krijgt een melding dat nil niet compatible is
+
+func getUpperLowerCount(str:String) -> (uppercase:String, lowercase:String, charCount:Int) {
+    return (str.uppercased(), str.lowercased(), str.count)
+}
+
+var result = getUpperLowerCount(str: "iOS 26")
+print(result.uppercase, "\n", result.lowercase, "\n", result.charCount, separator: "")
+
+print(result)
+
+func divide(g1:Int, g2:Int) -> Double {
+    return Double(g1/g2)
+}
+
+print(divide(g1: 12, g2: 6))
+print(divide(g1: 12, g2: 7))
+//print(divide(g1: 12, g2: 0))  Geeft division by zero error
+
+func calculate(
