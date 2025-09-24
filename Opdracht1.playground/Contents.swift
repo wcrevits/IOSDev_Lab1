@@ -59,4 +59,12 @@ print(calculate(nummers: 4, 5, 6, -3))
 print(calculate(nummers: -3))
 print(calculate())
 
+var x = 10.0
+var y = 3
 
+func increment(g1:inout Double, g2:inout Int) {
+    g1 += 1
+    g2 += 1
+}
+increment(g1: &x, g2: &y)
+print(x, y)
