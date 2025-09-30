@@ -100,6 +100,40 @@ do {
 
 struct Iphone {
     let supplier = "Apple"
-    var type : String
-    var dimension = (height:Double, width:Double).self
+    var type : IphoneType?
+    var dimension : (height:Double, width:Double)
+    var description: String {
+            switch type {
+            case .iPhoneAir:
+                return "Dit is een iPhone Air"
+            case .iPhone17:
+                return "Dit is een iPhone 17"
+            case .iPhone17Pro:
+                return "Dit is een iPhone 17 Pro"
+            case .iPhone17ProMax:
+                return "Dit is een iPhone 17 Pro Max"
+            case .none:
+                return "Geen type gespecificeerd"
+            }
+        }
+    
+    init() {
+        dimension = (height: 0.0,width: 0.0)
+        type = nil
+    }
+    
+    init(dimension : (height:Double, width:Double), type : IphoneType?) {
+        self.dimension = dimension
+        self.type = type
+    }
 }
+
+enum IphoneType {
+    case iPhoneAir, iPhone17Pro, iPhone17ProMax, iPhone17
+}
+
+let iphoneAir = Iphone()
+let iphoneAir2 = Iphone(dimension : (height:15.62, width:7.47), type : IphoneType.iPhone17ProMax)
+
+print(iphoneAir.description)
+print(iphoneAir2.description)
