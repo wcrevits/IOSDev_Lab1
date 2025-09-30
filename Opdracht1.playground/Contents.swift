@@ -137,3 +137,21 @@ let iphoneAir2 = Iphone(dimension : (height:15.62, width:7.47), type : IphoneTyp
 
 print(iphoneAir.description)
 print(iphoneAir2.description)
+
+// Deel 5
+
+let names = ["Dirk", "Els", "Marc", "Eline", "Dominiek"]
+func filterArr(name: String) -> Bool {
+    return name.hasPrefix("D")
+}
+
+func filterArrayExtended(letter: String) -> (String) -> Bool {
+    return { name in
+        return name.hasPrefix(letter)
+    }
+}
+
+print(names.filter(filterArrayExtended(letter: "E")))
+print(names.filter(filterArrayExtended(letter: "M")))
+print(names.map {$0.uppercased()})
+print(names.map{$0.count}.sorted())
